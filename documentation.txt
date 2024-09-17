@@ -1,0 +1,13 @@
+Stealth Techniques
+
+1. DLL Path confusion:
+    -The DLL path is passed as a command-line argument and is not hardcoded in the injector to avoid detection by signature-based scanners.
+
+2. Minimal API Usage:
+    - Used minimal Windows API functions to reduce the chance of detection by heuristic or behavior-based scanners.
+
+3. Memory Allocation:
+    - Used `VirtualAllocEx` to allocate memory in the target process, and `WriteProcessMemory` to write the DLL path to avoid typical injection signatures.
+
+4. Thread Creation:
+    - Used `CreateRemoteThread` to execute the `LoadLibraryA` function in the target process.
